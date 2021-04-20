@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fetch API Example</title>
+</head>
+<body>
+
+<p id="result"></p>
+<script type="text/javascript">
+		fetch('https://www.thesportsdb.com/api/v1/json/1/all_sports.php')
+		.then(function(res){
+			return res.json();
+		})
+		.then(function(data){
+			let result = `<h2>Data Nama Olahraga</h2>`;
+			
+			data.sports.forEach((team) => {
+				result +=
+				
+				`<table border=1 cellspacing=0>
+					<tr>
+						<td>
+							<img src="${team.strSportThumb}">	
+							<br>Sport  : ${team.strSport}
+							<br>Format : ${team.strFormat}
+						</td>
+					</tr>
+					<br>
+				 </table>`;
+				 document.getElementById('result').innerHTML = result;
+			});
+
+
+			console.log(data);
+		});
+		
+</script>
+</body>
+</html>

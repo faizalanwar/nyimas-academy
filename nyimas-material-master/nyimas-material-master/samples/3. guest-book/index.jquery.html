@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Book </title>
+</head>
+<body>
+  
+  <div>
+    Nama: <input type="text" id="nama" /><br />
+    Email: <input type="email" id="email" /><br />
+    Pesan: <textarea id="pesan"></textarea>
+
+    <br /><br />
+    <button id="submit">Submit</button>
+
+    <br /><br />
+    <h1>Daftar Buku tamu</h1>
+    <div id="guest-book-list"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#submit').on('click', function(){
+        var nama = $('#nama').val();
+        var email = $('#email').val();
+        var pesan = $('#pesan').val();
+
+        var htmlTempate = `
+          <ul>
+            <li>Nama: ${nama}</li>
+            <li>Email: ${email}</li>
+            <li>Pesan: ${pesan}</li>
+          </ul> 
+        `
+          $('#guest-book-list').append(htmlTempate);
+      });
+    });
+  </script>
+
+</body>
+</html>

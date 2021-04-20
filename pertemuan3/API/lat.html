@@ -1,0 +1,103 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title> ini judul Workshop</title>
+	 <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="css/bootstrap.min.css" >
+       <link rel="stylesheet" href="style.css" >
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Hello, world!</title>
+<style type="text/css">
+	.desk{
+		max-height: 75px;
+		overflow: hidden;
+	}
+
+</style>
+  </head>
+  <body>
+
+<h2 align=center>Data Nama Olahraga</h2>
+<br>
+
+<div class="container">
+	<div class="row" id='result'></div>
+
+<p id="result"></p>
+<script type="text/javascript">
+		fetch('https://www.thesportsdb.com/api/v1/json/1/all_sports.php')
+		.then(function(res){
+			return res.json();
+		})
+		.then(function(data){
+			let result = ``;
+			let i = 0;
+			data.sports.forEach((team) => {
+				result +=
+				
+				`
+				    <div class="col-sm">
+				    	<div class="card mb-5" style="width: 18rem;">
+							<img src="${team.strSportThumb}" class="card-img-top" alt="...">
+						 	<div class="card-body"><h5 class="card-title"> ${team.strSport}</h5>
+						 	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+						 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${'exampleModal' + i}">Read More..</button>
+							<div class="modal fade" id="${'exampleModal' + i}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h1 class="modal-title" id="exampleModalLabel"> ${team.strSport}</h1>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <img src="${team.strSportThumb}" class="card-img-top" alt="...">
+							        <p class='desk'><b>Format  :</b>${team.strFormat}</p>
+							       	<p class='desk'><b>Description :</b> ${team.strSportDescription}</p>
+
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							        <button type="button" class="btn btn-primary">Save changes</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+							</div>
+					    </div>
+					  </div>
+					</div>
+
+
+				
+
+						
+					
+				 `;
+				 document.getElementById('result').innerHTML = result;
+				 i++;
+			});
+
+
+			console.log(data);
+		});
+		
+</script>
+
+
+
+
+
+	
+		
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="js/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

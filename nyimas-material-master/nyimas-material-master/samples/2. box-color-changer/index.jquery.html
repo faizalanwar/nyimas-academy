@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Color Changer</title>
+</head>
+<body>
+  
+  <div id="box" style="width: 300px; height: 300px; background-color: red"></div>
+  <br />
+  <div>
+    Pilih Warna Box : 
+    <select id="color-list">
+      <option value="red" checked>Red</option>
+      <option value="green" checked>Green</option>
+      <option value="blue" checked>Blue</option>
+      <option value="yellow" checked>Yellow</option>
+    </select>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+  <script>
+    $(document).ready(function(){
+      var box = $("#box");
+      var colorList = $("#color-list")
+
+      colorList.on('change', function(element){
+        box.css('backgroundColor', element.target.value);
+      });
+    });
+  </script>
+
+</body>
+</html>

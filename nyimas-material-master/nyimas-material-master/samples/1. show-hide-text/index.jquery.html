@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Color Changer</title>
+</head>
+<body>
+<p id="text">Hi ini text tampil loh</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#hide").click(function(){
+      $("#text").hide();
+    });
+    $("#show").click(function(){
+      $("#text").show();
+    });
+  });
+  </script>
+
+</body>
+</html>

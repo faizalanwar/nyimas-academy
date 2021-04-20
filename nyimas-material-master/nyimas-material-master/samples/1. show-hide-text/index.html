@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Color Changer</title>
+</head>
+<body>
+<p id="text">Hi ini text tampil loh</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+<script>
+
+  var textElement = document.getElementById('text');
+
+  document.getElementById('hide').addEventListener('click', function(){
+    textElement.style.visibility = 'hidden';
+  });
+
+  document.getElementById('show').addEventListener('click', function(){
+    textElement.style.visibility = 'visible';
+  });
+  
+  </script>
+
+</body>
+</html>

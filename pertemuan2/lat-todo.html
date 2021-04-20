@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Book </title>
+</head>
+<body>
+  
+  <div>
+    TODO: <textarea id="todo"></textarea>
+
+    <br /><br />
+    <button id="submit">Submit</button>
+
+    <br /><br />
+    <h1>TODO List:</h1>
+    <div id="todo-list"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+      $(document).on('click', '.remove', function(){
+        $(this).parent().remove();
+      });
+
+      $('#submit').on('click', function(){
+        var todo = $('#todo').val();
+        
+        var htmlTempate = `
+          <ul>
+            <li>- ${todo} <button class="remove" >remove</button></li>
+          </ul> 
+        `
+          $('#todo-list').append(htmlTempate);
+      });
+
+  
+    });
+  </script>
+
+</body>
+</html>
